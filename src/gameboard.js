@@ -2,6 +2,7 @@ const Ship = require('./shipFactory')
 
 const Gameboard = () => {
     const missedShots = [];
+    const receivedShots = [];
     const ships = [];
     function placeShip(coordinates) {
         ships.push(Ship(coordinates));
@@ -9,8 +10,10 @@ const Gameboard = () => {
     function receiveAttack(hitLocation) {
         ships.forEach((ship) => {
             const foundHit = ship.position.find(val => val === hitLocation);
-            if(foundHit) ship.hit(hitLocation);
-            else missedShots.push(hitLocation);
+            if(foundHit) {
+                ship.hit(hitLocation);
+                receivedShots.push(hitLocation)
+            } else missedShots.push(hitLocation);
         })
     }
     function checkIfAllShipAreSunk() {
@@ -20,6 +23,7 @@ const Gameboard = () => {
                 allSunk = true;
             } else {
                 allSunk = false;
+                return allSunk;
             }
         }
         return allSunk;
@@ -28,6 +32,7 @@ const Gameboard = () => {
         placeShip: placeShip,
         ships: ships,
         missedShots: missedShots,
+        receivedShots: receivedShots,
         receiveAttack: receiveAttack,
         checkIfAllShipAreSunk: checkIfAllShipAreSunk,
     }

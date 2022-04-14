@@ -1,0 +1,89 @@
+body, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+}
+
+#navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    box-sizing: border-box;
+    padding: 40px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#player1, #player2 {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ships-p1, #ships-p2 {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, minmax(40px, 70px));
+    grid-template-rows: repeat(10, minmax(40px, 70px));
+}
+
+.marker, .marker-letter {
+    justify-self: center;
+    align-self: center;
+}
+
+.ship, .comp-ship {
+    border: 2px solid black;
+}
+
+.ship.chosen {
+    background-color: black;
+}
+
+.ship:hover, .comp-ship:hover {
+    background-color: black;
+}
+
+.comp-ship.hit {
+    background-color: red;
+}
+
+.comp-ship.miss {
+    background-color: blue;
+}
+
+#divider {
+    width: 10px;
+    background-color: black;
+}
+
+#footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+
+
+
+
+

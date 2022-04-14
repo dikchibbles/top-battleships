@@ -21,8 +21,8 @@ const Computer = () => {
             possibleShots.push(`${letter}${i}`)
         }
     }) 
-    function attackEnemy (enemyGB) {
-        let index = getRandomPosition(possibleShots.length);
+    function attackEnemy (randomizer, enemyGB) {
+        let index = randomizer(possibleShots.length);
         let newShot = possibleShots[index];
         enemyGB.receiveAttack(newShot)
         possibleShots.splice(index, 1)
@@ -32,14 +32,12 @@ const Computer = () => {
         computerGB: computerGB,
         madeShots: madeShots,
         attackEnemy: attackEnemy,
+        possibleShots: possibleShots,
     }
 }
 
-function getRandomPosition(max) {
-    return Math.floor(Math.random() * max);
-}
 
-
+module.exports = {Player, Computer};
 
 
 
