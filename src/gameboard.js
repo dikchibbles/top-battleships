@@ -3,9 +3,28 @@ const Ship = require('./shipFactory')
 const Gameboard = () => {
     const missedShots = [];
     const receivedShots = [];
+    const shipCount = {
+        'AC': {
+            size: 4,
+            count: 1
+        },
+        'Battleship': {
+            size: 3,
+            count: 2
+        },
+        'LC': {
+            size: 2,
+            count: 3
+        },
+        'PatrolBoat': {
+            size: 1,
+            count: 4
+        },
+    }
     const ships = [];
     function placeShip(coordinates) {
-        ships.push(Ship(coordinates));
+        let newShip = Ship(coordinates);
+        ships.push(newShip);
     }
     function receiveAttack(hitLocation) {
         ships.forEach((ship) => {
@@ -29,6 +48,7 @@ const Gameboard = () => {
         return allSunk;
     }
     return {
+        shipCount: shipCount,
         placeShip: placeShip,
         ships: ships,
         missedShots: missedShots,

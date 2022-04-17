@@ -1,4 +1,4 @@
-export default function createGameboards () {
+export function createGameboards () {
     const p1Ships = document.querySelector('#ships-p1');
     const p2Ships = document.querySelector('#ships-p2');
     for (let i = 0; i < 10; i++) {
@@ -45,7 +45,19 @@ function setShipOnGB (event, size) {
     
 }
 
-
+/*
+export function setShipSizeVarWhenBtnClicked (player, sSize) {
+    const acBtn = document.getElementById('AC');
+    const battleshipBtn = document.querySelector('#Battleship');
+    const lcBtn = document.querySelector('#LC');
+    const patrolBtn = document.querySelector('#PatrolBoat');
+    const allBtns = [acBtn, battleshipBtn, lcBtn, patrolBtn];
+    allBtns.forEach(button => {
+        button.addEventListener('click', () => {
+            sSize = player.playerGB.shipCount[button.id].size;
+        })
+    })
+} */
 
 
 
