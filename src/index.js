@@ -29,13 +29,20 @@ let chosenCoordinates = [];
 p1ShipsDiv.addEventListener('click', (e) => {
     let shipId = e.target.dataset.shipId;
     console.log(chosenCoordinates)
-    if(e.target.classList.contains('chosen') && chosenCoordinates.includes(shipId)) {
+    if (e.target.classList.contains('chosen') && chosenCoordinates.includes(shipId)) {
         chosenCoordinates.splice(chosenCoordinates.indexOf(shipId), 1);
         e.target.classList.toggle('chosen');
     } else {
-        if (chosenCoordinates.length !== shipSize){
-            e.target.classList.add('chosen');
-            chosenCoordinates.push(shipId);
+        if (chosenCoordinates.length !== shipSize) {
+            if (chosenCoordinates.length === 0) {
+                e.target.classList.add('chosen');
+                chosenCoordinates.push(shipId);
+            } else {
+                let previousCoordinate = chosenCoordinates[chosenCoordinates.length - 1];
+                if (previousCoordinate[0]) {
+                    
+                }
+            }
         } else if (chosenCoordinates.length === shipSize) {
             player1.playerGB.placeShip(chosenCoordinates);
             chosenCoordinates = [];
